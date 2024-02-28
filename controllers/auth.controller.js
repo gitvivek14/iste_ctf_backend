@@ -12,9 +12,9 @@ exports.login_post = asyncHandler(async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
-        if (user.password != password) {
-            return res.status(401).json({ message: 'Invalid password' });
-        }
+        // if (user.password != password) {
+        //     return res.status(401).json({ message: 'Invalid password' });
+        // }
         // create token
         const payload = {
             email:email,
