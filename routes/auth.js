@@ -2,10 +2,10 @@ const express = require ('express');
 const router = express.Router();
 const app = express();
 
-var bodyParser=require('body-parser');
-app.use(bodyParser.json());
-// parse requests of content-type - application/x-www-form-urlencoded and - multipart/form-data
-app.use(bodyParser.urlencoded({ extended: true }));
+// var bodyParser=require('body-parser');
+// app.use(bodyParser.json());
+// // parse requests of content-type - application/x-www-form-urlencoded and - multipart/form-data
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //Login API : /auth/login
