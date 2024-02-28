@@ -8,7 +8,7 @@ require("dotenv").config()
 exports.login_post = asyncHandler(async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.find({email:email})
+        const user = await User.findOne({email})
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
