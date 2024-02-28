@@ -6,7 +6,7 @@ const user = require('../models/user');
 require("dotenv").config()
 
 
-exports.login_post = asyncHandler(async (req, res) => {
+exports.login_post = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({email})
@@ -39,9 +39,9 @@ exports.login_post = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: 'Internal server error', message2:user });
+        res.status(500).json({ message: 'Internal server error', message2:"login bckeroor" });
     }
-});
+};
 
 exports.signup = async (req,res)=>{
     try {
