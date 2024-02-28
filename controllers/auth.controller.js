@@ -1,7 +1,6 @@
 const User = require('../models/user');
 const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
-const { body, validationResult } = require('express-validator');
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
@@ -9,7 +8,7 @@ require("dotenv").config()
 exports.login_post = asyncHandler(async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({ email:email });
+        const user = await User.find({email:email})
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }

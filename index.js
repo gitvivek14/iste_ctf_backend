@@ -2,13 +2,11 @@ const express = require('express')
 const cors = require('cors');
 const connectToMongo = require('./config/database');
 const socketIo = require('socket.io');
-const mongoose = require('mongoose');
-const Player = require('./models/player');
 const http = require('http');
 const app = express();
-const GAME = require('./models/game');
-const socket = require("socket.io")
 const userroutes = require("./routes/user")
+const game = require('./routes/game');
+const auth = require('./routes/auth');
 // const {Server} = socket
 // const server = require("http").createServer(app)
 // fetching port from env file | if not present default - 4000
@@ -32,8 +30,8 @@ app.get("/",(req,res)=>{
     })
   })
 
-const server = http.createServer(app);
-const io = socketIo(server);
+// const server = http.createServer(app);
+// const io = socketIo(server);
 
 app.use((_req,res,next)=>{
   res.header('Access-Control-Allow-Origin', '*');
@@ -50,9 +48,8 @@ app.use(cors({
 
 
 //Routes
-const auth = require('./routes/auth');
+
 app.use('/auth', auth);
-const game = require('./routes/game');
 app.use('/game',game)
 app.use("/userd",userroutes)
 
