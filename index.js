@@ -40,7 +40,7 @@ app.use((_req,res,next)=>{
   next();
 })
 app.use(cors({
-  origin: "https://iste-ctf-2wmi.vercel.app",
+  origin: "*",
   credentials:true // Allow requests from this origin
 }));
 
