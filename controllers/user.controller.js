@@ -3,7 +3,7 @@ const User = require("../models/user")
 exports.getalldetails = async(req,res)=>{
     try {
         const {email} = req.body;
-        const user = await User.findOne({email:email}).populate("game").exec();
+        const user = await User.findOne({email}).populate("game").exec();
         if(!user){
             return res.status(400).json({
                 message:"User not Registerd"
