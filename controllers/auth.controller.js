@@ -1,7 +1,8 @@
 const User = require('../models/user');
 const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const user = require('../models/user');
 require("dotenv").config()
 
 
@@ -38,7 +39,7 @@ exports.login_post = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: 'Internal server error', message2:error });
+        res.status(500).json({ message: 'Internal server error', message2:user });
     }
 });
 
