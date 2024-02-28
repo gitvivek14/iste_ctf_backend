@@ -1,6 +1,6 @@
 const express = require ('express');
 const router = express.Router();
-const app = express();
+const {login_post,signup} = require("../controllers/auth.controller")
 
 // var bodyParser=require('body-parser');
 // app.use(bodyParser.json());
@@ -9,10 +9,9 @@ const app = express();
 
 
 //Login API : /auth/login
-const user = require('../controllers/auth.controller');
-router.post("/login",user.login_post);
+router.post("/login",login_post);
 
 //Signup API : /auth/signup
-router.post("/signup",user.signup);
+router.post("/signup",signup);
 
 module.exports = router;
