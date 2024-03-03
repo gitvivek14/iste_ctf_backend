@@ -123,7 +123,7 @@ exports.control = asyncHandler(async (req, res) => {
      
       }
       else {
-        return res.status(469).json({
+        return res.json({
           id:3,
           message: "WRONG ANSWER",
           success: false,
