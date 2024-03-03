@@ -80,6 +80,7 @@ exports.control = asyncHandler(async (req, res) => {
     console.log(ans);
     if (game2.answered[question.level - 1][question.questionNo - 1] == true) {
       return res.json({
+        id:1,
         message: "Question already answered",
         success: false,
       })
@@ -114,6 +115,7 @@ exports.control = asyncHandler(async (req, res) => {
       console.log(data);
       
       return res.status(200).json({
+        id:2,
         message: "Game Updated",
         status : true,
         data
@@ -121,7 +123,8 @@ exports.control = asyncHandler(async (req, res) => {
      
       }
       else {
-        res.json({
+        return res.status(469).json({
+          id:3,
           message: "WRONG ANSWER",
           success: false,
         });
